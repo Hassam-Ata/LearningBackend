@@ -32,6 +32,22 @@
         </form>
         <br>
         <a href="/">Back to home</a>
+        <form action="/search" method="GET" id="searchForm">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email">
+            <button type="submit">Search</button>
+        </form>
+
+        <script>
+            document.getElementById("searchForm").addEventListener("submit", function () {
+                // Clear the form fields after submission
+                this.reset();
+            });
+        </script>
+
+
 </body>
 
 </html>

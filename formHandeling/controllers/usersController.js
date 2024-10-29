@@ -119,3 +119,21 @@ exports.usersDeletePost = (req, res) => {
   usersStorage.deleteUser(req.params.id);
   res.redirect("/");
 };
+
+exports.usersSearchGet = (req, res) => {
+  const { name, email } = req.query;
+  const users = usersStorage.getUsers();
+
+  const searchResults = users.filter((user) => {
+    return (
+      (name
+        ? user.firstName.includes(name) || user.lastName.includes(name)
+        : true) && (email ? user.email === email : true)
+    );
+  });
+
+  res.render("search", {
+    title: "Search Results",
+    users: searchResults,
+  });
+};
