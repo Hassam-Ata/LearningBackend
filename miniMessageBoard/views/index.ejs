@@ -1,0 +1,17 @@
+<h1>
+    <%= title %>
+</h1>
+<ul>
+    <% for (let i=0; i < messages.length; i++) { %>
+        <li>
+            <span>
+                <%= messages[i].text %>
+            </span>
+            <!-- Updated the link to use `/user/<username>` for the details page -->
+            <a href="/user/<%= messages[i].user %>">Click for details</a>
+        </li>
+        <% } %>
+</ul>
+
+<!-- Link to add new message -->
+<a href="/new">Add new message</a>
