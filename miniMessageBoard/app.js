@@ -1,8 +1,9 @@
+require("dotenv").config();
 const express = require("express");
 const path = require("node:path");
 const app = express();
 const router = require("./routes/router");
-const port = 8000;
+const port = process.env.PORT || 5000;
 
 app.use(express.urlencoded({ extended: true }));
 
